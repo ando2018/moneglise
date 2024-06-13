@@ -22,5 +22,7 @@ jobs:
     steps:
     - run: node -v
     - run: pwd
-    - run: ./ npm install
-    - run: node ./final.js
+    - run: cd ..
+    - run: pwd
+    - run: npm install
+    - run: node final.js

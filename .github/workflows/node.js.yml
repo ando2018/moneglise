@@ -22,5 +22,6 @@ jobs:
     steps:
     - uses: ./
     - run: node -v
-    - run: npm install
+    - run: ls
+    - run: ./ ls
     - run: node ./final.js

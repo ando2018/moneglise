@@ -21,4 +21,4 @@ jobs:
 
     steps:
     - run: node -v
-    - run: node ../../final.js
+    - run: node ../final.js

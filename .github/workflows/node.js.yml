@@ -21,6 +21,5 @@ jobs:
 
     steps:
     - run: node -v
-    - run: cd .. 
-    - run: npm install
+    - run: cd ..  npm install
     - run: node ../final.js

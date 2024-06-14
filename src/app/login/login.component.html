@@ -1,0 +1,32 @@
+
+<div style=" width: 80%; margin-top: 25px; text-align: end; margin-left: 10%;">
+
+    <span *ngIf="message != ''">
+      {{message}}
+    </span>
+    <br />
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="id" placeholder="Your Email *"  />
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" [(ngModel)]="pwd" placeholder="Your Password *"  />
+    </div>
+
+    <div *ngIf="loading">
+      <div class="spinner-grow" role="status" *ngIf="loading">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div *ngIf="!loading">
+      <div class="form-group">
+        <input type="button" (click)="validation()" class="btnSubmit" value="Login" />
+      </div>
+      <div class="form-group">
+        <a href="#" class="ForgetPwd">Forget Password?</a>
+      </div>
+    </div>
+</div>
+<br />
+<br />
+
+

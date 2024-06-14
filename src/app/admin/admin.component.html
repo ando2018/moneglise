@@ -1,0 +1,317 @@
+<div class="" *ngIf="true">
+  <br />
+
+  <ul class="nav nav-tabs" id="myTab" style=" margin-right: 18px; margin-left: 15px;" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="articles-tab" data-bs-toggle="tab" data-bs-target="#articles" type="button" role="tab" aria-controls="articles" aria-selected="true">Articles</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="sarybirao-tab" data-bs-toggle="tab" data-bs-target="#saryBirao" type="button" role="tab" aria-controls="saryBirao" aria-selected="false">Sary Birao</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="sarysampana-tab" data-bs-toggle="tab" data-bs-target="#sarySampana" type="button" role="tab" aria-controls="sarySampana" aria-selected="false">Sary Sampana</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="saryevenement-tab" data-bs-toggle="tab" data-bs-target="#saryEvenements" type="button" role="tab" aria-controls="saryEvenements" aria-selected="false">Sary Evenement</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane  show active" id="articles" role="tabpanel" aria-labelledby="articles-tab">
+      <div class="col-lg">
+        <div class="list-group">
+          <a class="list-group-item">
+            <h4>
+              <span style="color: #082464;float:left">ANNONCES - VAOVAO</span>
+            </h4>
+            <br />
+            <button style="color: #082464;float:right" class="button" (click)="addArticles()">Ajouter acticles</button>
+
+            <br />
+            <br />
+            <div class="col-md-12" *ngIf="true" style="margin-left:10px">
+              <div class="spinner-grow" role="status" *ngIf="loading.articles">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <table class="table" *ngIf="!loading.articles" [ngStyle]="{'zoom': innerWidth<500 ? '50%' : ''}">
+                <thead>
+                  <tr class="hidden-xs">
+                    <!--<th scope="col" class="hidden-xs ">#</th>-->
+                    <!--<th scope="col" class="hidden-xs ">Titre</th>
+                    <th scope="col" class="hidden-xs ">Description</th>
+                    <th scope="col" class="hidden-xs ">Date</th>
+                    <th scope="col" class="hidden-xs ">Photo</th>-->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let article of dataArcticles">
+                    <td class="hidden-xs ">
+                      <u (click)="selectArticle(article.id.toString())" style=" float: left;cursor:pointer">Publié le  ({{article.date | date: 'dd/MM/yyyy'}})</u><br />
+                      <br />
+                      <p style=" float: left;">
+                        <i> Titre : </i> {{article.title}}
+                      </p>
+                      <br />
+                      <p *ngIf="article.description.length>3" style=" float: left;width:100%">
+                        <i> Description :</i>
+                        <span [innerHtml]="article.description"> </span>
+                      </p>
+                      <br />
+                      <span style="text-align:center" *ngIf="article.img != '' && article.img != undefined">
+                        <img *ngIf="isProd " src="{{article.img}}" width="50%" alt="Alternate Text" style=" margin: 10px 10px 10px 10px;" />
+                        <img *ngIf="!isProd " width="50%" src="../../assets/img/IMG-20230331-WA0003-768x437.jpg" alt="Alternate Text" style=" margin: 10px 10px 10px 10px;" />
+                      </span>
+                      <br /><br />
+                            <span>
+                              <input type="file" class="file-input" id="idArticleFile" (change)="onChangeArticleFile($event)" #fileUpload />
+                              <br />
+                              <button style="float:left" (click)="onUploadArticle(article.id.toString())" class="btn btn-success">
+                                Upload
+                              </button>
+                            </span>
+                    
+                    </td>
+                    <td class="hidden-md  hidden-lg hidden-sm ">
+                      <a (click)="selectArticle(article.id.toString())" style="float:left; cursor: pointer"><u>publié le  {{article.date | date: 'dd/MM/yyyy'}}</u></a>
+                      <br />
+                      {{article.title}}
+                      <br />
+                      <span [innerHtml]="article.description"> </span>
+                      <br />
+                      <span style="text-align:center">
+                        <img *ngIf="isProd && article.img != '' && article.img != undefined" src="{{article.img}}" width="50%" alt="Alternate Text" style=" margin: 10px 10px 10px 10px;" />
+                        <img *ngIf="!isProd && article.img != '' && article.img != undefined" width="50%" src="../../assets/img/IMG-20230331-WA0003-768x437.jpg" alt="Alternate Text" style=" margin: 10px 10px 10px 10px;" />
+                        <BR />
+                        <input type="file" class="file-input" id="idArticleFile" (change)="onChangeArticleFile($event)" #fileUpload />
+                      </span>
+                      <button style="float:left" (click)="onUploadArticle(article.id.toString())" class="btn btn-success">
+                        Upload
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+            <br />
+          </a>
+        </div>
+      </div>
+      <!-------------------------------------------------------------------------------------------------------------------------------->
+
+      <br />
+    </div>
+    <div class="tab-pane " id="saryBirao" role="tabpanel" aria-labelledby="sarybirao-tab">
+      <div class="col-lg">
+        <div class="list-group">
+          <a class="list-group-item">
+            <h4>
+              <span style="color: #082464;float:left">SARY  BIRAO </span>
+            </h4>
+            <br />
+            <div class="col-md-12" *ngIf="true" style="margin-left:10px">
+              <div class="spinner-grow" role="status" *ngIf="loading.birao">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div *ngIf="!loading.birao">
+                <container *ngFor="let img of dataSaryBirao">
+                  <img *ngIf="isProd" width="25%" src="{{img}}" alt="Alternate Text" style=" margin: 10px 10px 10px 10px;" />
+                  <img *ngIf="!isProd" width="25%" src="../../assets/img/IMG-20230331-WA0003-768x437.jpg" style=" margin: 10px 10px 10px 10px;" alt="Alternate Text" />
+                </container>
+              </div>
+
+            </div>
+            <br />
+            <br />
+            <div style="float:left" [ngStyle]="{'zoom': innerWidth<500 ? '50%' : ''}">
+              <input type="file" class="file-input" (change)="onChangeBiraoFile($event)" #fileUpload />
+              <button style="float:left" (click)="onUploadBirao()" class="btn btn-success">
+                Upload
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="tab-pane " id="sarySampana" role="tabpanel" aria-labelledby="sarysampana-tab">
+      <div class="col-lg">
+        <div class="list-group">
+          <a class="list-group-item">
+            <h4>
+              <span style="color: #082464;float:left">SARY  SAMPANA </span>
+            </h4>
+            <br />
+            <div class="col-md-12" *ngIf="true" style="margin-left:10px">
+              <div class="spinner-grow" role="status" *ngIf="loading.sampana">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div *ngIf="!loading.sampana">
+                <container *ngFor="let img of dataSarySampana">
+                  <img *ngIf="isProd" src="{{img}}" width="25%" alt="Alternate Text" style=" margin: 10px 10px 10px 10px;" />
+                  <img *ngIf="!isProd" width="25%" src="../../assets/img/IMG-20230331-WA0003-768x437.jpg" alt="Alternate Text" style=" margin: 10px 10px 10px 10px;" />
+                </container>
+              </div>
+            </div>
+            <br />
+            <br />
+            <div style="float:left" [ngStyle]="{'zoom': innerWidth<500 ? '50%' : ''}">
+              <input type="file" class="file-input" (change)="onChangeSampanaFile($event)" #fileUpload />
+              <button style="float:left" (click)="onUploadSampana()" class="btn btn-success">
+                Upload
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="tab-pane " id="saryEvenements" role="tabpanel" aria-labelledby="saryevenement-tab">
+      <div class="col-lg">
+        <div class="list-group">
+          <a class="list-group-item">
+            <h4>
+              <span style="color: #082464;float:left">SARY HAFA </span>
+              <br />
+              <button style="color: #082464;float:right" class="button" (click)="showPhotoNameSelected()">Ajouter titre </button>
+              <br />
+            </h4>
+            <br />
+            <div class="spinner-grow" role="status" *ngIf="loading.hafa">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <div class="" *ngIf="!loading.hafa" style="margin-left:10px">
+              <ng-container>
+                <div *ngFor="let cat of dataSaryCateg;  let idxx = index">
+                  <br />
+                  <p style=" text-align: justify; margin-left: 70px;">
+                    <a style="color: #212154; font-size: large; " class="">
+                      {{cat.category}}
+                    </a>
+                  </p>
+                  <div class="card card-body">
+                    <div>
+                      <div class="row">
+                        <table class="table">
+                          <div *ngIf="cat.type == 'photo'">
+                            <ng-container *ngFor="let img of cat.img ; let i = index ">
+                              <img *ngIf="isProd" width="25%" src="{{cat.img[i]}}" alt="Alternate Text" style=" margin: 10px 10px 10px 10px;" />
+                              <img *ngIf="!isProd" width="25%" src="../../assets/img/IMG-20230331-WA0003-768x437.jpg" style=" margin: 10px 10px 10px 10px;" alt="Alternate Text" />
+                            </ng-container>
+                            <br />
+                            <br />
+                            <div style="float:left;margin-left:20px" [ngStyle]="{'zoom': innerWidth<500 ? '50%' : ''}">
+                              <input type="file" class="file-input" (change)="onChangePhotoFile($event)" #fileUpload />
+                              <button style="float:left" (click)="onUploadPhoto(cat.category)" class="btn btn-success">
+                                Upload
+                              </button>
+                            </div>
+                          </div>
+                          <ng-container *ngIf="cat.type== 'video'">
+                            <iframe width="40%" height="100px" [src]="transform(cat.img)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          </ng-container>
+                        </table>
+                      </div>
+                      <br />
+                      <br />
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+            <br />
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModalArticleAdmin">
+  <div class="modal-dialog modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clearArticleSelected()"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="card text-center">
+          <div class="card-header">
+            <h5 class="card-title" *ngIf="!isAddArticles">{{titleModalSelected}}</h5>
+            <input type="text" name="name" *ngIf="isAddArticles" [(ngModel)]="titleModalSelected" value="" placeholder="Titre" style="width: 100%;" />
+          </div>
+          <div class="card-body" style="text-align: left!important;">
+            <p class="card-text" *ngIf="!isAddArticles" [innerHtml]="textModalSelected">
+            </p>
+            <div *ngIf="isAddArticles">
+              <textarea rows="20" [(ngModel)]="textModalSelected" style="width: 100%;" placeholder="text">
+              </textarea>
+            </div>
+            <img *ngIf="imgModalSelected != '' && isProd" src="{{imgModalSelected}}" style="width: 90%;" class="img-fluid" alt="...">
+            <img *ngIf="imgModalSelected != '' && !isProd" src="../../assets/img/culte-de-paques-1024x678.jpg" style="width: 90%;" class="img-fluid" alt="...">
+          </div>
+          <div class="card-footer text-muted">
+            <span *ngIf="!isAddArticles">
+              publié  le {{dateModalSelected | date: 'dd/MM/yyyy'}}
+            </span>
+            <span *ngIf="isAddArticles">
+              <!--<input type="text" name="name" placeholder="dd/mm/yyyy" value="" />-->
+            </span>
+
+          </div>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="mb1 black bg-darken-1" (click)="SaveArticles()" *ngIf="isAddArticles">Enregistrer</button>
+        <button type="button" class="mb1 black bg-darken-1" (click)="clearArticleSelected()" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModalPhotoAdmin">
+  <div class="modal-dialog modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clearPhotoNameSelected()"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="card text-center">
+          <div class="card-body" style="text-align: left!important;">
+            <input type="text" [(ngModel)]="photoNameInput" name="name" value="" placeholder="Nom de l'evenement" style="width:100%" />
+            <br />
+            <br />
+            <div>
+              <label>
+                <input type="radio" name="color" value="photo" checked (change)="selectedType = 'photo'"> Photo
+              </label><br />
+              <label>
+                <input type="radio" name="color" value="video" (change)="selectedType = 'video'"> Video
+              </label>
+            </div>
+            <br />
+            <input *ngIf="selectedType == 'video'" type="text" [(ngModel)]="videoNameInput" name="name" value="" placeholder="URL video" style="width:100%" />
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="mb1 black primary" (click)="SavePhotoName()">Enregistrer</button>
+        <button type="button" class="mb1 black bg-darken-1" (click)="clearPhotoNameSelected()" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

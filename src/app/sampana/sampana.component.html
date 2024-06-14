@@ -1,0 +1,67 @@
+<div class="">
+  <br />
+  <h4>NEWS - Vaovao Mpiangonana</h4>
+
+  <div class="">
+    <div class="row" style=" margin-right: 0px; margin-left: 0px;">
+
+      <!-------------------------------------------------------------------------------------------------------------------------------->
+      <div class="col-lg">
+        <div class="" style=" margin-right: 0px; margin-left: 0px;">
+          <div class="spinner-grow" role="status" *ngIf="loading">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div *ngIf="!loading">
+            <ng-container *ngFor="let ar of dataArcticles ; let i = index ">
+              <div class="row" >
+                <div class="col-sm-6" *ngIf="i % 2 === 0">
+                  <app-article (onSelected)="selectArticle($event)" title="{{dataArcticles[i]?.title}}" text="{{dataArcticles[i]?.description}}" id="{{dataArcticles[i]?.id}}" date="{{dataArcticles[i]?.date}}" user="{{dataArcticles[i]?.user}}" imgSrc="{{dataArcticles[i]?.img}}"></app-article>
+                </div>
+                <div class="col-sm-6" *ngIf="i % 2 === 0 ">
+                  <app-article (onSelected)="selectArticle($event)" title="{{dataArcticles[i +1]?.title}}" text="{{dataArcticles[i +1]?.description}}" id="{{dataArcticles[i +1]?.id}}" date="{{dataArcticles[i]?.date}}" user="{{dataArcticles[i +1]?.user}}" imgSrc="{{dataArcticles[i +1]?.img}}"></app-article>
+                </div>
+              </div>
+            </ng-container> 
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+      <!-- The Modal -->
+      <div class="modal" id="myModalSampana">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="clearArticleSelected()"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="card text-center">
+                <div class="card-header">
+                  <h5 class="card-title">{{titleModalSelected}}</h5>
+                </div>
+                <div class="card-body" style="text-align: left!important;">
+                  <p class="card-text" [innerHtml]="textModalSelected"></p>
+                  <div *ngIf="imgModalSelected != ''">
+                    <img *ngIf="isProd " src="{{imgModalSelected}}" style="width: 90%;" class="img-fluid" alt="...">
+                    <img *ngIf="  !isProd" src="../../assets/img/IMG-20230331-WA0003-768x437.jpg" style="width: 90%;" class="img-fluid" alt="...">
+                  </div>
+         
+                </div>
+                <div class="card-footer text-muted">
+                  Publié le {{dateModalSelected | date: 'dd/MM/yyyy'}}
+                </div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="mb1 black bg-darken-1" (click)="clearArticleSelected()" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>

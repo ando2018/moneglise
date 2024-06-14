@@ -1,0 +1,40 @@
+
+<div class="row">
+  <table class="table">
+    <div *ngIf="dataSary.type == 'photo'">
+      <ng-container *ngFor="let img of dataSary.img ; let i = index ">
+        <ng-container>
+          <ng-container *ngIf="i % 2 === 0">
+            <tr>
+              <td style="border-style: none;">
+                <img *ngIf="isProd" [src]="dataSary.img[i]"
+                     class="w-75 shadow-1-strong rounded mb-4"
+                     alt="Boat on Calm Water" (click)="imgSelected(dataSary.img[i],i)" />
+                <img *ngIf="!isProd" src="../../assets/img/culte-de-paques-1024x678.jpg"
+                     class="w-75 shadow-1-strong rounded mb-4"
+                     alt="Boat on Calm Water" (click)="imgSelected(dataSary.img[i],i)" />
+
+              </td>
+              <td style="border-top: 1px solid white; border-style: none;" *ngIf="dataSary.img.length > i+1">
+                <img *ngIf="isProd" [src]="dataSary.img[i+1]"
+                     class="w-75 shadow-1-strong rounded mb-4"
+                     alt="Boat on Calm Water" (click)="imgSelected(dataSary.img[i+1],i+1)" />
+                <img *ngIf="!isProd" src="../../assets/img/culte-de-paques-1024x678.jpg"
+                     class="w-75 shadow-1-strong rounded mb-4"
+                     alt="Boat on Calm Water" (click)="imgSelected(dataSary.img[i+1],i+1)" />
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+
+    </div>
+
+
+    <ng-container *ngIf="dataSary.type== 'video'">
+      <iframe width="90%" height="600px" [src]="transform(dataSary.img)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </ng-container>
+  </table>
+</div>
+<br />
+

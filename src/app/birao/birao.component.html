@@ -1,0 +1,116 @@
+<div class="row" style=" margin-right: 0px; margin-left: 0px;">
+  <div style="margin-top:15px">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            <h4 style="float: left; font-weight: 700; color: #181891; margin-top: 0px;">Mpitandrina</h4>
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">
+            <div class="col-xs-12  col-sm-12">
+              <br />
+              <div class="panel panel-default-">
+
+                <br />
+                <app-profil [categorie]="'Mpitandrina'" [coupleNomImg]="dataProfilMpitandrina.coupleNomImg" [profil]="'Mpitandrina'"></app-profil>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            <h4 style="float: left; font-weight: 700; color: #181891; margin-top: 0px; margin-left: 5px;">Birao</h4>
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+          <div class="accordion-body">
+            <div class="col-xs-12  col-sm-12">
+              <br />
+              <br />
+              <div class="row col-sm-12">
+                <div>
+                  <div class="col-sm-4" *ngFor="let h of dataProfilBirao.coupleNomImg">
+                    <div class="card-">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; color: #181891; margin-top: 0px;"> {{h.profil}} </h5>
+                        <img src="{{h.img}}" class="img-circle" alt="...">
+                        <br />
+                        {{h.nom}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+            <h4 style="float: left; font-weight: 700; color: #181891; margin-top: 0px; margin-left: 5px;">Ny Vaomiera</h4>
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+          <div class="accordion-body">
+            <div class="col-xs-12  col-sm-12">
+              <br />
+              <div class="row col-sm-12">
+                <div>
+                  <div class="col-sm-4" *ngFor="let h of dataProfilVaomiera.coupleNomImg">
+                    <div class="card-">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; color: #181891; margin-top: 0px;"> {{h.profil}} </h5>
+                        <img src="{{h.img}}" class="img-circle" alt="...">
+                        <br />
+                        {{h.nom}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-headingFour">
+            <h4 style="float: left; font-weight: 700; color: #181891; margin-top: 0px; margin-left: 5px;">Ny Sampana</h4>
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+          <div class="accordion-body">
+            <div class="col-xs-12  col-sm-12">
+              <br />
+              <div *ngFor="let sampana of dataProfilSampana">
+                <br />
+                <h4 style="float: left; font-weight: 700; color: #4b4bad; margin-top: 0px; margin-left: 5px;">{{sampana.categorie}}</h4>
+                <br />
+
+                <div class="row col-sm-12">
+                  <div class="col-sm-4" *ngFor="let h of sampana.coupleNomImg">
+                    <div class="card-">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; color: #181891; margin-top: 0px;"> {{h.profil}} </h5>
+                        <img src="{{h.img}}" class="img-circle" alt="...">
+                        <br />
+                        {{h.nom}}
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

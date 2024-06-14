@@ -1,0 +1,71 @@
+
+<page size="A3">
+  <div class="" style="padding-top: 20px; ">
+    <div class="row">
+      <div class="col-sm">
+        <span style=" float: left; margin-left: 20px; color: #082464"> {{data.date}}</span>
+        <div class="" style="float: right;">
+          <div style="color: #082464 ">
+            Nous suivre :
+            <a href="https://m.facebook.com/people/Fpma-Melun/100072910302110/" target="_blank" class="fa fa-facebook" style="margin-right: 15px; font-size: 20px;"></a>
+            <a href="https://m.facebook.com/people/Fpma-Melun/100072910302110/" target="_blank" class="fa fa-instagram" style="margin-right: 15px; font-size: 20px;"></a>
+            <a href="https://m.facebook.com/people/Fpma-Melun/100072910302110/" target="_blank" class="fa fa-twitter" style="margin-right: 15px; font-size: 20px;"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="" style="max-width: 90%; margin-top: -50px;">
+    <div class="row">
+      <div class="col-12">
+        <div>
+          <div></div>
+          <img src="../assets/img/logo.png" width="90px" alt="logo" style=" width: 105%; margin-top: 20px; margin-left: 2%; border-radius: 10px;" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr style="margin-top: 0rem;" />
+  <button class="btn btn-default" style="float: left; font-size: 10px; margin-left: 10px;" type="button" name="button" *ngIf="isShow">
+    <a routerLink="/accueil">     Retour vers Accueil</a>
+  </button>
+  <br *ngIf="isShow" />
+  <!--<br *ngIf="isShow" />-->
+  <router-outlet></router-outlet>
+</page>
+<br />
+
+  <footer class="c-footer u-theme--background-color--primary u-theme--background-color--darker" role="contentinfo">
+    <div class="c-footer--inner u-color--white l-grid l-grid--7-col l-grid-wrap l-grid-wrap--6-of-7">
+      <div class="l-grid-item l-grid-item--m--3-col c-footer__description">
+        <p class="c-footer__description-text u-font--secondary--m">
+          <a href="https://fpma-melun.org/">fpma-melun.org/</a>
+        </p>
+        <p class="c-footer__description-text u-font--secondary--m">
+         <a  routerLink="/birao">
+           Ny Birao sy ny Sampana
+         </a><br />
+              <a  routerLink="/contact">
+                Contact
+              </a><br />
+              <a href="https://radio-anjomara.com/" target="_blank">
+                Radio Anjomara
+              </a><br />
+              <a  href="https://fpma.church/fpma/" target="_blank">
+                FPMA Foibe
+              </a>
+        </p>
+      </div> <!-- /.c-footer__description -->
+     
+      <div class="l-grid-item l-grid-item--m--3-col c-footer__legal">
+        <p class="c-footer__copyright">© 2024 Église FPMA Melun </p>
+        <address class="c-footer__address" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress"></span>        <span itemprop="addressLocality"> Dammarie Les Lys,</span>                <span itemprop="postalCode"> 77190</span>        France |
+          <a itemprop="telephone" href="tel:+33 (0) 0 00 00 00" class="c-footer__phone u-link--white u-theme--link-hover--light">+33 (0) 0 00 00 00</a>
+        </address>
+        
+      </div> <!-- /.c-footer__legal -->
+    </div> <!-- /.c-footer--inner -->
+  </footer>

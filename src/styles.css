@@ -1,0 +1,99 @@
+/*------------------------------menu-----------------------*/
+.nav-active {
+  background-color: #d4e2f5 !important;
+  border-radius: 25% 10% !important;
+  font-weight: bold !important;
+} 
+
+/*------------------------------login-----------------------*/
+.login-content {
+  position: absolute;
+  top: 15%;
+  float: left;
+  padding: 1.5rem 20px;
+  margin: .125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: .25rem;
+}
+
+/*------------------------------A3-----------------------*/
+body {
+  background: rgb(204,204,204);
+  background-color: darkgray;
+}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+
+  page[size="A3"] {
+    width: 90%;
+    /*height: 180vh;*/
+    border-radius: 8px;
+  }
+
+@media print {
+  body, page {
+    background: white;
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+/*------------------------------map-----------------------*/
+
+  .container .map {
+    width: 45%;
+    float: left;
+  }
+/*------------------------------container-----------------------*/
+  .container .contact-form {
+    width: 53%;
+    margin-left: 2%;
+    float: left;
+  }
+.container .contact-form .title {
+  font-size: 2.5em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #242424;
+  margin: 5% 8%;
+}
+
+    .container .contact-form .subtitle {
+      font-size: 1.2em;
+      font-weight: 400;
+      margin: 0 4% 5% 8%;
+    }
+
+    .container .contact-form input,
+    .container .contact-form textarea {
+      width: 330px;
+      padding: 3%;
+      margin: 2% 8%;
+      color: #242424;
+      border: 1px solid #B7B7B7;
+    }
+
+      .container .contact-form input::placeholder,
+      .container .contact-form textarea::placeholder {
+        color: #242424;
+      }
+
+    .container .contact-form .btn-send {
+      background: #A383C9;
+      width: 180px;
+      height: 60px;
+      color: #FFFFFF;
+      font-weight: 700;
+      margin: 2% 8%;
+      border: none;
+    }
+
+/*------------------------------container-----------------------*/

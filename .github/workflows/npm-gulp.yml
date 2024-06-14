@@ -27,7 +27,7 @@ jobs:
     - name: Node V
       run: npm -v
     - name: Build
-      run: npm run build 
+      run: ng build 
     - name: nodeJs line
       run: node ./final.js
      
